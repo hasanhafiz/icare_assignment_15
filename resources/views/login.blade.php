@@ -12,7 +12,7 @@
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-
+        
         @if ( session('error') )
         <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 " role="alert">
             <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -23,7 +23,7 @@
               <span class="font-medium"></span> Either Username or Password is Invalid.
             </div>
           </div>
-
+        
         @endif
 
         @if ( session('status') )
@@ -63,7 +63,7 @@
                     </button>
                 </div>
             </form>
-
+            
             <p class="mt-10 text-center text-sm text-gray-500">
                 Don't have an account yet?
                 <a href="{{ route('register') }}" class="font-semibold leading-6 text-black hover:text-black">Sign Up</a>
