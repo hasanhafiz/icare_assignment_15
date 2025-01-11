@@ -4,13 +4,13 @@
     <!-- Cover Container -->
     <section
         class="bg-white border-2 p-8 border-gray-800 rounded-xl min-h-[400px] space-y-8 flex items-center flex-col justify-center">
-        
+        {{-- {{ dd( $post ) }} --}}
         <!-- /Profile Info -->
         @if ( session('status') )
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             {{ session('status') }}
           </div>        
-        @endif        
+        @endif
         
         <!-- Profile Info -->
         <div class="flex gap-4 justify-center flex-col text-center items-center">
@@ -94,6 +94,9 @@
     </form>
     
 <!-- User Specific Posts Feed -->
+      @if( isset( $post ))
+        
+      
       <!-- Barta Card -->
       <article class="bg-white border-2 border-black rounded-lg shadow mx-auto max-w-none px-4 py-5 sm:px-6">
         <!-- Barta Card Top -->
@@ -113,12 +116,12 @@
                     <div class="text-gray-900 flex flex-col min-w-0 flex-1">
                         <a href="{{ route('profiles.index') }}"
                             class="hover:underline font-semibold line-clamp-1">
-                            {{ $post->user->fullname }}
+                            {{ auth()->user()->fullname }}
                         </a>
                         
                         <a href="{{ route('profiles.index') }}"
                             class="hover:underline text-sm text-gray-500 line-clamp-1">
-                            {{ '@'.$post->user->username }}
+                            {{ '@'. auth()->user()->username }}
                         </a>
                     </div>
                     <!-- /User Info -->
@@ -190,6 +193,7 @@
             <span>450 views</span>
         </div>
     </article>
+    @endif
       <!-- /Barta Card -->
       <!-- User Specific Posts Feed -->    
     

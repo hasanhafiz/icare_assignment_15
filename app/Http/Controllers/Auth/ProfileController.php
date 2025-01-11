@@ -20,6 +20,7 @@ class ProfileController extends Controller
     {
         $posts_count = Post::where('user_id', auth()->id() )->count();
         $last_post = Post::where('user_id', auth()->id() )->latest()->first();
+        
         return view('profiles.index', ['posts_count' => $posts_count, 'post' => $last_post]);
     }
     
