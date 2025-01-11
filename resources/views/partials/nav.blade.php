@@ -11,6 +11,18 @@
                     </a>
                 </div>
                 
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <!-- Current: "border-gray-800 text-gray-900 font-semibold", Default: "border-transparent text-gray-600 hover:border-gray-300 hover:text-gray-800" -->
+                    <a
+                      href="{{ route('home') }}"
+                      class="inline-flex items-center  px-1 pt-1 text-sm font-semibold text-gray-900
+                      {{ request()->is('/') ? ' border-b-2 border-gray-800' : 'border-transparent' }}
+                      ">Discover</a >
+                    <a
+                      href="{{ route('profiles.show', auth()->id() ) }}"
+                      class="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-600 hover:border-gray-300 hover:text-gray-800 {{ request()->is('profiles/*') ? ' border-b-2 border-gray-800' : 'border-transparent' }}"
+                      >For you</a>
+                  </div>                
                                
             </div>
             <div class="hidden sm:ml-6 sm:flex gap-2 sm:items-center">
