@@ -33,13 +33,13 @@ These instructions will get you a copy of the project up and running on your loc
 Clone the repo
 
 ```
-git clone https://github.com/hasanhafiz/icare_assignment09_barta_app.git
+git clone https://github.com/hasanhafiz/icare_assignment_15.git
 ```
 
 Create database
 
 ```
-CREATE DATABASE `icare_assignment09_barta_app`
+CREATE DATABASE `icare_assignment_15`
 ```
 
 Run Migrations: Migrate the database to create the necessary tables.
@@ -66,4 +66,10 @@ Access the Application: Open a web browser and visit the following URL:
 
 ```
 http://localhost:8000
+```
+
+In order to see the list of Test case, open console and run the following commands 
+
+```
+php artisan test
 ```
