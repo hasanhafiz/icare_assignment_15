@@ -18,15 +18,15 @@
             <div>
               Either Username or Password is Invalid.
             </div>
-          </div>
-        
+          </div>        
         @endif
-
+        
         @if ( session('status') )
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <span class="font-medium"></span> {{ session('status') }}
         </div>
         @endif
+        
             <form class="space-y-6" action="{{ route('login') }}" method="POST">
             @csrf
                 <div>

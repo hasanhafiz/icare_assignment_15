@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -30,6 +32,19 @@ expect()->extend('toBeOne', function () {
     return $this->toBe(1);
 });
 
+// expect()->toBeEmail( function(){
+//     expect( $this->validate )
+// });
+
+expect()->extend( 'toBeEmail', function(){
+    expect( $this->value )
+    ->toBeString()
+    ->toContain('@')
+    ->not->toContain( ' ' )
+    ->toContain('.');
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Functions
@@ -41,7 +56,6 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
-{
-    // ..
+function login( $user = null ) {
+    return test()->actingAs( $user ?? User::factory()->create() );
 }

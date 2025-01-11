@@ -17,10 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();
-        
-        // dd( $posts );
-        
+        $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();        
         return view('posts.index', compact('posts'));
     }
     
@@ -39,22 +36,12 @@ class PostController extends Controller
     {        
         // Validate the request
         $validated = $request->validated();
-        
-        // dump( $validated );
-        // dd( $request->file('image') );
         $file = $request->file('image');
-        if ( isset( $file ) ) {
-            
-            // if same file exists, delete it first
-            // Storage::delete('file.jpg');            
+        if ( isset( $file ) ) {           
             
             $file_extension = $file->extension();
             $file_name = 'img_'. Str::random(10) . '.' . $file_extension;  
             
-            // Delete           
-            // Storage::disk('public')->delete( $file_name );
-            
-            // $path = $request->file('profile_picture')->storeAs('avatars', $file_name, 'public'  ); // same as without 3rd params
             $path = $request->file('image')->storeAs('posts', $file_name, 'public' );
             $validated['image'] = $path;
         }
@@ -63,8 +50,7 @@ class PostController extends Controller
         $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get(); 
         
         // Redirect to the intended page or to a default route (e.g., '/home')
-        return redirect()->intended('/home');               
-        // return redirect()->route('home', ['posts' => $posts]);
+        return redirect()->intended('/home')->with('success', 'Your post added successfully!');           
     }
     
     /**
