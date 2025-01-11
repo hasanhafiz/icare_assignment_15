@@ -114,7 +114,7 @@
                     
                     <!-- User Info -->
                     <div class="text-gray-900 flex flex-col min-w-0 flex-1">
-                        <a href="{{ route('profiles.index') }}"
+                        <a href="{{ route('profiles.show', auth()->id() ) }}"
                             class="hover:underline font-semibold line-clamp-1">
                             {{ auth()->user()->fullname }}
                         </a>
