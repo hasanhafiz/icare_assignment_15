@@ -73,3 +73,7 @@ In order to see the list of Test case, open console and run the following comman
 ```
 php artisan test
 ```
+
+After running test command, it will execute the following test case successfully.
+
+![Barta](public/screenshots/test_case.png)
